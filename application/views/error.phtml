@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Error <?= $this->code ?></title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+<div class="container mt-4">
+	<div class="col-md-12">
+		<div class="jumbotron">
+			<h1>Error <?= $this->getStatusCode() ?></h1>
+			<p>
+				Koldy framework gave you the error page <code>:(</code> Sorry about that. </p>
+
+			<?php if (!\Koldy\Application::isLive()) : ?>
+				<p>
+					<code><?= $this->e->getMessage() ?></code>
+				</p>
+				<pre class="text-danger"><?= $this->e->getTraceAsString() ?></pre>
+			<?php endif; ?>
+			<p>
+				<a class="btn btn-success btn-lg" role="button" href="/"><span class="glyphicon glyphicon-home"></span> Go home</a>
+				<button class="btn btn-success btn-lg" onclick="window.location.reload()">
+					<span class="glyphicon glyphicon-refresh"></span> Retry
+				</button>
+			</p>
+		</div>
+
+	</div><!-- /row -->
+</div><!-- /container -->
+
+<?= $this->render('elements/browser-update') ?>
+</body>
+</html>

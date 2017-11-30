@@ -1,0 +1,11 @@
+.idea
+.vagrant
+.DS_Store
+vendor
+storage
+node_modules
+bin
+public/static/dist
+composer.phar
+composer.lock
+deploy

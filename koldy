@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DIR="$(dirname "${BASH_SOURCE[0]}")"
+
+if [ $1 == "run" ]
+then
+	php "$DIR/public/index.php" "${@:2}"
+else
+	php "$DIR/public/index.php" koldy "$@"
+fi
