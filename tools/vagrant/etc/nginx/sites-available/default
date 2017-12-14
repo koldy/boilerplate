@@ -6,9 +6,8 @@ server {
 
 	server_name localhost 127.0.0.1;
 	root /vagrant/public;
-	index index.html index.php;
+	index index.php;
 
-	sendfile off;
 	tcp_nopush on;
 	tcp_nodelay on;
 	keepalive_timeout 65;
@@ -17,15 +16,15 @@ server {
 	client_max_body_size 32M;
 
 	location / {
-		try_files $uri $uri/ =404;
-		index  index.html index.htm index.php;
+		try_files $uri $uri/ /index.php?$args;
+		index index.php;
 
+		# Useful rewrite for most frameworks, wordpress
 		if (!-e $request_filename) {
 			rewrite ^(.+)$ /index.php last;
 			break;
 		}
 
-		access_log off;
 		expires off;
 		add_header Cache-Control no-cache;
 	}
@@ -33,11 +32,12 @@ server {
 	location = /favicon.ico { access_log off; log_not_found off; }
 
 	location ~ \.php$ {
-		expires off;
-		fastcgi_split_path_info ^(.+\.php)(/.+)$;
-		fastcgi_pass unix:/run/php/php7.1-fpm.sock;
+		include /etc/nginx/fastcgi_params;
+		fastcgi_pass  unix:/var/run/php/php7.1-fpm.sock;
 		fastcgi_index index.php;
-		include fastcgi_params;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		include        fastcgi_params;
+		expires off;
 	}
 
 	location ~ ^/(?:\.htaccess|README|\.md){

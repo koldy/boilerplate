@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
 	# CONFIGURE PORT FORWARDING
 	config.vm.network "forwarded_port", guest: 80, host: 5000
@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
 
 	# INCREASE INSTANCE MEMORY
 	config.vm.provider "virtualbox" do |vb|
-		vb.memory = "128"
+		vb.memory = "256"
 	end
 
 	# SETUP MACHINE

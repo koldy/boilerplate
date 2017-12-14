@@ -9,3 +9,4 @@ public/static/dist
 composer.phar
 composer.lock
 deploy
+*.log
