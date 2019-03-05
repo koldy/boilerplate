@@ -25,6 +25,45 @@
 	</div>
 </div>
 
+<div class="container mt-4">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="alert alert-primary">See some local examples</div>
+			<ul>
+				<li><a href="<?= \Koldy\Route::href('maintenance') ?>">Maintenance page</a></li>
+				<li><a href="<?= \Koldy\Route::href('dev') ?>">Dev module route</a></li>
+				<li><a href="<?= \Koldy\Route::href('json') ?>">Json response example</a> or <a href="<?= \Koldy\Route::href('index', 'json') ?>">alternative route</a></li>
+				<li><a href="<?= \Koldy\Route::href('robots.txt') ?>">See robots.txt</a></li>
+				<li><a href="<?= \Koldy\Route::href('test-exception') ?>">Test exception</a></li>
+				<li><a href="<?= \Koldy\Route::href('test-error') ?>">Test error logging</a></li>
+			</ul>
+			<div class="alert alert-primary">Next steps</div>
+			<ul>
+				<li>get familiar with <a href="https://www.vagrantup.com/intro/index.html" target="_blank">Vagrant</a></li>
+				<li>review provision.sh and chosen databases</li>
+				<li>review Vagrantfile and chosen ports</li>
+				<li><a href="https://koldy.net/framework/docs/2.0/database/migrations.md#creating-migration" target="_blank">create your first migration</a></li>
+				<li>create your own database model</li>
+				<li>create your own controller, view and use database model</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<div class="alert alert-primary">About database</div>
+			<p>
+				Both MySQL (MariaDB) and PostgreSQL are installed on your Vagrant machine as an example. To connect to database, use the following
+				credentials for both databases:
+			</p>
+			<ul>
+				<li>host: <code>localhost</code></li>
+				<li>username: <code>vagrant</code></li>
+				<li>password: <code>vagrant</code></li>
+				<li>database: <code>vagrant</code></li>
+				<li>port: <code>5001</code> for MySQL and <code>5002</code> for PostgreSQL</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
 <?= $this->render('elements/browser-update') ?>
 </body>
 </html>

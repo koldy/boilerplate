@@ -1,4 +1,5 @@
 .page {
-	background: url(../images/koldy-pattern.jpg) no-repeat center center;
-	background-size: cover;
+	border: 1px solid #efefef;
+	border-radius: 4px;
+	text-align: center;
 }

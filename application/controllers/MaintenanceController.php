@@ -14,7 +14,7 @@ class MaintenanceController
 	 * @return \Koldy\Response\AbstractResponse
 	 * @link http://localhost:5000/maintenance
 	 */
-	public function indexAction()
+	public function getIndex()
 	{
 		return View::create('maintenance')
 			->statusCode(503)

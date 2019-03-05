@@ -36,7 +36,7 @@ Koldy\Application::useConfig([
 
 	'routing_class' => '\Koldy\Route\DefaultRoute',
 	'routing_options' => [
-		'always_restful' => false
+		'always_restful' => true
 	],
 
 	'security' => [

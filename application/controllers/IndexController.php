@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use App\Config;
 use Koldy\Application;
 use Koldy\Response\Json;
 use Koldy\Response\Plain;
@@ -16,18 +17,19 @@ class IndexController
 	/**
 	 * @link http://localhost:5000
 	 */
-	public function indexAction()
+	public function getIndex()
 	{
 		return View::create('base')
 			->set('page', 'index')
-			->set('documentation_url', 'https://koldy.net/framework/docs/2.0/boilerplate.md');
+			->set('version', Config::getVersion())
+			->set('documentation_url', 'https://koldy.net/framework/docs/2.0/getting-started.md');
 	}
 
 	/**
 	 * @return Json
 	 * @link http://localhost:5000/json
 	 */
-	public function jsonAction()
+	public function getJson()
 	{
 		return Json::create([
 			'success' => true
@@ -47,7 +49,7 @@ class IndexController
 	 * @return \Koldy\Response\Plain
 	 * @link http://localhost:5000/robots.txt
 	 */
-	public function robotsTxtAction()
+	public function getRobotsTxt()
 	{
 		if (!Application::isLive()) {
 			return Plain::create("User-agent: *\nDisallow: /");
@@ -60,7 +62,7 @@ class IndexController
 	 * @throws \App\Exception
 	 * @link http://localhost:5000/test-exception
 	 */
-	public function testExceptionAction()
+	public function getTestException()
 	{
 		throw new \App\Exception('Testing failed request');
 	}
@@ -69,7 +71,7 @@ class IndexController
 	 * @return Plain
 	 * @link http://localhost:5000/test-error
 	 */
-	public function testErrorAction()
+	public function getTestError()
 	{
 		\Koldy\Log::error('Test error 1');
 		\Koldy\Log::alert('Test alert 2');

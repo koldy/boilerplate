@@ -29,8 +29,11 @@ rsync -av --progress \
 	--exclude='*.sh' \
 	--exclude='*.json' \
 	--exclude='*.xml' \
+	--exclude='*.log' \
+	--exclude='readme.md' \
 	--exclude='composer.*' \
 	--exclude='storage' \
+	--exclude='logs' \
 	--exclude='tests' \
 	--exclude='tools' \
 	--exclude="$EXCLUDE" \
@@ -40,6 +43,7 @@ rsync -av --progress \
 # Take back vendor folder as it was before
 php composer.phar install
 
+sed -i 's#=> Koldy\\Application::DEVELOPMENT#=> Koldy\\Application::PRODUCTION#g' deploy/public/index.php
 
 # Deploy folder is now ready, only production files are there. Original boilerplate project in deploy folder should
 # be around 1.5MB (du -hs). You need to take care about the configuration files, it depends on your infrastructure.

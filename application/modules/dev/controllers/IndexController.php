@@ -11,7 +11,7 @@ class IndexController
 	 * @link http://localhost:5000/dev
 	 * @link http://localhost:5000/dev/index
 	 */
-	public function indexAction()
+	public function getIndex()
 	{
 		return Plain::create('Dev, OK');
 	}

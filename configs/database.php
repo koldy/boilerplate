@@ -7,8 +7,10 @@
  */
 return [
 
-	'default' => 'website',
-	//'default' => 'mariadb',
+	'default' => 'mariadb',
+	//'default' => 'website',
+
+	//'koldy_migration' => 'website', // uncomment if you need to set other database where migrations info will be stored
 
 	'website' => [
 		'type' => 'postgres',

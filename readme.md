@@ -6,8 +6,8 @@ Use this project as starting project if you plan to use Koldy Framework and all 
 
 After cloning this project, run `init.sh` in console. `init.sh` will:
 
-1. Start Vagrant virtual machine with Ubuntu 16.04
-2. Install Nginx, PHP 7.1 and PostgreSQL 10
+1. Start Vagrant virtual machine with Ubuntu 18.04
+2. Install Nginx, PHP 7.2 and PostgreSQL 10
 3. Initialize complete project structure, including folders that are under `.gitignore`
 4. Install Composer and dependencies: Koldy Framework as main dependency, PHPUnit for testing and etc.
 
@@ -15,15 +15,17 @@ When script is done, open http://localhost:5000
 
 Next time you'll want to start the project, use `start.sh` instead of `init.sh`.
 
-Koldy Boilerplate Vagrant VM will take only **128MB** of RAM, together with complete OS, web server, database and
+Koldy Boilerplate Vagrant VM will take only **256MB** of RAM, together with complete OS, web server, databases and
 all other installed services. Not much, isn't it?
 
 
 ## Database
 
-To access database directly, connect to PostgreSQL localhost:5102, username `vagrant`, password `vagrant`, database `vagrant`.
+To access PostgreSQL database, connect to localhost:5001 with username `vagrant`, password `vagrant` and database `vagrant`.
 
-Boilerplate is already configured to talk to the local PostgreSQL.
+To access MySQL (MariaDB) database, connect to localhost:5002 with username `vagrant`, password `vagrant` and database `vagrant`.
+
+This boilerplate is already configured to talk to the local MySQL database by default.
 
 
 ## Testing
