@@ -27,6 +27,18 @@ class IndexController
 
 	/**
 	 * @return Json
+	 * @link http://localhost:5000
+	 */
+	public function postIndex()
+	{
+		return Json::create([
+			'success' => true,
+			'message' => 'You made POST request!'
+		]);
+	}
+
+	/**
+	 * @return Json
 	 * @link http://localhost:5000/json
 	 */
 	public function getJson()
