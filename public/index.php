@@ -61,6 +61,7 @@ Koldy\Application::useConfig([
 			'options' => [
 				'path' => null,
 				'mode' => 0777,
+				'file_mode' => 0644,
 				'log' => ['debug', 'notice', 'info', 'warning', 'error', 'critical', 'alert', 'emergency'],
 				'dump' => ['speed', 'memory', 'whitespace']
 			]
