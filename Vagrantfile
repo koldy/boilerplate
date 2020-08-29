@@ -20,9 +20,9 @@ Vagrant.configure("2") do |config|
 	end
 
 	config.trigger.after :up do |trigger|
-    trigger.name = "Nginx and PHP7.2-FPM started"
-    trigger.info = "Trigger to start Nginx and PHP7.2-FPM after boot"
-    trigger.run_remote = {inline: "service php7.2-fpm start && service nginx start"}
+    trigger.name = "Nginx and PHP7.4-FPM started"
+    trigger.info = "Trigger to start Nginx and PHP7.4-FPM after boot"
+    trigger.run_remote = {inline: "service php7.4-fpm start && service nginx start"}
   end
 
 end
