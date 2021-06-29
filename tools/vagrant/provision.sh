@@ -43,26 +43,26 @@ service nginx restart
 echo "Installing Memcache"
 apt-get install memcached -y > /dev/null
 
-echo "Installing PHP 7.2"
+echo "Installing PHP 7.4"
 LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php -y
 apt-get update > /dev/null
-LC_ALL=en_US.UTF-8 apt-get install php7.2-fpm php7.2-cli php7.2-common php7.2-mysql php7.2-mbstring php7.2-pgsql php7.2-sqlite php7.2-intl php7.2-gd php7.2-curl php7.2-zip php7.2-xml php7.2-memcached php7.2-bcmath php-xdebug -y
+LC_ALL=en_US.UTF-8 apt-get install php7.4-fpm php7.4-cli php7.4-common php7.4-mysql php7.4-mbstring php7.4-pgsql php7.4-sqlite php7.4-intl php7.4-gd php7.4-curl php7.4-zip php7.4-xml php7.4-memcached php7.4-bcmath php-xdebug -y
 
 VAGRANT_USER="user = $(stat -c %U /vagrant)"
 VAGRANT_GROUP="group = $(stat -c %U /vagrant)"
 
-sed -i 's#\;catch_workers_output = yes#catch_workers_output = yes#g' /etc/php/7.2/fpm/pool.d/www.conf
-sed -i 's#error_log = /var/log/php7.2-fpm.log#error_log = /vagrant/logs/php.error.log#g' /etc/php/7.2/fpm/php-fpm.conf
-sed -i 's#user = www-data#'"$VAGRANT_USER"'#g' /etc/php/7.2/fpm/pool.d/www.conf
-sed -i 's#group = www-data#'"$VAGRANT_GROUP"'#g' /etc/php/7.2/fpm/pool.d/www.conf
-sed -i 's#\;php_admin_flag\[log_errors\] = on#php_admin_flag\[log_errors\] = on#g' /etc/php/7.2/fpm/pool.d/www.conf
-sed -i 's#\;php_admin_value\[error_log\] = /var/log/fpm-php.www.log#php_admin_value\[error_log\] = /vagrant/logs/php.error.log#g' /etc/php/7.2/fpm/pool.d/www.conf
-sed -i 's#post_max_size = 8M#post_max_size = 32M#g' /etc/php/7.2/fpm/php.ini
-sed -i 's#upload_max_filesize = 2M#upload_max_filesize = 32M#g' /etc/php/7.2/fpm/php.ini
+sed -i 's#\;catch_workers_output = yes#catch_workers_output = yes#g' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's#error_log = /var/log/php7.4-fpm.log#error_log = /vagrant/logs/php.error.log#g' /etc/php/7.4/fpm/php-fpm.conf
+sed -i 's#user = www-data#'"$VAGRANT_USER"'#g' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's#group = www-data#'"$VAGRANT_GROUP"'#g' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's#\;php_admin_flag\[log_errors\] = on#php_admin_flag\[log_errors\] = on#g' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's#\;php_admin_value\[error_log\] = /var/log/fpm-php.www.log#php_admin_value\[error_log\] = /vagrant/logs/php.error.log#g' /etc/php/7.4/fpm/pool.d/www.conf
+sed -i 's#post_max_size = 8M#post_max_size = 32M#g' /etc/php/7.4/fpm/php.ini
+sed -i 's#upload_max_filesize = 2M#upload_max_filesize = 32M#g' /etc/php/7.4/fpm/php.ini
 
 touch /vagrant/logs/php.error.log
 chmod -R 0777 /vagrant/logs/*
-service php7.2-fpm restart
+service php7.4-fpm restart
 
 echo "Installing Postgres"
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
