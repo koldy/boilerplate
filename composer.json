@@ -1,6 +1,6 @@
 {
 	"require": {
-		"koldy/framework": "^2.0"
+		"koldy/framework": "^2"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^6.0"

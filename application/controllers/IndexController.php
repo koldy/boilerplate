@@ -22,7 +22,7 @@ class IndexController
 		return View::create('base')
 			->set('page', 'index')
 			->set('version', Config::getVersion())
-			->set('documentation_url', 'https://koldy.net/framework/docs/2.0/getting-started.md');
+			->set('documentation_url', 'https://koldy.net/framework/docs/2.2/getting-started.md');
 	}
 
 	/**
