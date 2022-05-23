@@ -2,6 +2,8 @@
 
 Use this project as starting project if you plan to use Koldy Framework and all benefits that Framework brings with itself.
 
+> Please check other branches for different framework and PHP versions.
+
 ## Development Environment
 
 After cloning this project, run `init.sh` in console. `init.sh` will:
