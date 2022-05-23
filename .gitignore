@@ -10,3 +10,4 @@ composer.phar
 composer.lock
 deploy
 *.log
+.phpunit.result.cache

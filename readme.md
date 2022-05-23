@@ -8,8 +8,8 @@ Use this project as starting project if you plan to use Koldy Framework and all 
 
 After cloning this project, run `init.sh` in console. `init.sh` will:
 
-1. Start Vagrant virtual machine with Ubuntu 20.04
-2. Install Nginx, PHP 7.4 and PostgreSQL 10
+1. Start Vagrant virtual machine with Ubuntu 22.04
+2. Install Nginx, PHP 8.1 and PostgreSQL 14
 3. Initialize complete project structure, including folders that are under `.gitignore`
 4. Install Composer and dependencies: Koldy Framework as main dependency, PHPUnit for testing and etc.
 
