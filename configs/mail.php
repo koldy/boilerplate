@@ -20,6 +20,22 @@ return [
 	'sendmail' => [
 		'enabled' => true,
 		'adapter_class' => '\Koldy\Mail\Adapter\Mail'
+	],
+
+	'phpmailer' => [
+		'enabled' => true,
+		'adapter_class' => \KoldyPHPMailer\PHPMailer::class,
+		'options' => [
+			'host' => 'your.domain.com',
+			'port' => 587,
+			'username' => 'your.username',
+			'password' => 'your.password',
+			'type' => 'smtp',
+			'adjust' => function ($phpmailer) { // optional
+				// you can adjust the PHPMailer's instance here, for example:
+				$phpmailer->SMTPDebug = \PHPMailer\PHPMailer\SMTP::DEBUG_SERVER;
+			}
+		]
 	]
 
 ];
